@@ -32,6 +32,12 @@ let getNeighborsAndCoordinates<'a> (myWorld:'a [,]) (myPoint:int*int) (neighbors
     getNeighborAndCoordinate<'a> myWorld newX  newY
   ) |>List.choose id
 
+
+let lookLeft (arr:'a [,]) x y = arr[0..x-1,y]
+let lookRight (arr:'a [,]) x y = arr[x+1..,y]
+let LookUp (arr:'a [,]) x y = arr[x,0..y-1]
+let LookDown (arr:'a [,]) x y = arr[x,y+1..]
+
 let getPointsSurroundingAPoint<'a> (myWorld:'a [,]) (myPoint:int*int) =
   getNeighbors<'a> myWorld myPoint [(-1,-1);(-1,0);(-1,1);(0,-1);(0,1);(1,-1);(0,1);(1,1)]
 let getPointsAndCoordinatesSurroundingAPoint<'a> (myWorld:'a [,]) (myPoint:int*int) =

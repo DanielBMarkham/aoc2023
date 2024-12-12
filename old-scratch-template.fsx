@@ -1,5 +1,8 @@
 // HOUSEKEEPING/COMMON
-let linesExample = System.IO.File.ReadLines("dayX/example.txt")   |> Seq.toList;;
+
+let linesExample = System.IO.File.ReadLines("day1/example.txt") |> Seq.toList |> List.map(fun x->x.Split(' '));; 
+  |> List.map(fun x->x|>Array.filter(fun y->y<>"")) |>|> Array.map (fun xs -> (xs.[0], xs.[1]))
+|> List.map(fun x->x|>Array.filter(fun y->y<>""))
 let linesProblem1 = System.IO.File.ReadLines("dayX/problem1.txt")   |> Seq.toList;;
 let linesProblem2 = System.IO.File.ReadLines("dayX/problem2.txt")   |> Seq.toList;;
 
